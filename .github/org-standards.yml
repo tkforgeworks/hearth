@@ -1,0 +1,24 @@
+# Org standards record — maintained by the org-standards-check skill.
+# Standards live in tkforgeworks/.github; this file only records this repo's check
+# history and its intentional deviations.
+last_checked:
+  org_commit: 1c459d32031ed2220bf6d220733aff823936927d
+  date: 2026-11-03
+
+# Not a deviation, a known gap: the main ruleset (id 26504718) has no
+# required_status_checks rule yet because there is no CI to report one.
+# Add it with PUT (docs/branch-protection-ruleset.md, "Updating an existing
+# ruleset") once the first tool's CI has reported on a PR. TKFW-95.
+
+deviations:
+  - standard: branching-and-release
+    item: no vX.Y.Z/main release branches
+    kind: opt-out
+    reason: >
+      hearth holds several independent Discord tools, each versioned and
+      released on its own, so a single repo-wide vX.Y.Z/main release branch
+      does not fit. Topic branches (feature/TKFW-N-topic) are cut from main and
+      PR straight into main; no release-branches ruleset. The org doc has no
+      provision for a multi-tool repo yet, so this needs an org-level decision
+      (and a per-tool release workflow) before the first tool ships.
+    since: 2026-11-03
