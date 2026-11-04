@@ -61,4 +61,11 @@ Dependabot ecosystem entry, and fill in this table.
 ## Current status
 
 TKFW-95: repo bootstrapped to org standards (licensing, templates, `main`
-ruleset without a required check). No tools yet.
+ruleset without a required check). TKFW-96: proposed tooling and stack in
+the README. No tools yet.
+
+All planned work sits under epic TKFW-97 as skeleton tickets labelled
+`needs-spec` (TKFW-98..109; the README lists them). Each gets a full spec
+from the user before work starts — don't build from a ticket that still has
+`needs-spec`. Groundwork first: TKFW-98 (workspace + CI), TKFW-99 (dev app +
+hosting), TKFW-100 (per-tool releases).

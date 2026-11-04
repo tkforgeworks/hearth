@@ -16,37 +16,55 @@ Each tool gets a section here once it ships.
 
 ## Proposed tooling
 
-Ideas only: nothing here is built or committed to yet. Each one becomes a
-TKFW ticket (label `discord`) before work starts. "Type" refers to the
+Ideas only: nothing here is built yet. Everything planned is tracked under
+the Jira epic [TKFW-97](https://tkforgeworks.atlassian.net/browse/TKFW-97)
+(label `discord`). Each ticket starts as a skeleton labelled `needs-spec`, and
+gets a full spec before any work starts. "Type" refers to the
 [tool types](#proposed-stack) below.
 
 ### Dev workflow
 
-| Tool | What it does | Type |
-|---|---|---|
-| Release announcer | Posts a product's generated release notes to a `#releases` channel when its release workflow publishes. Likely an org reusable workflow in `tkforgeworks/.github` that any repo's release can call. | Webhook |
-| Jira bridge | `/ticket TKFW-95` shows a status card. A right-click "Create TKFW ticket" on a message files it with the `discord` label. Optional feed of status changes. | Slash-command bot |
-| Digest poster | Posts the weekly and midweek forge-digest summaries to a channel as well as email. | Webhook |
+| Tool | What it does | Type | Ticket |
+|---|---|---|---|
+| Release announcer | Posts a product's generated release notes to a `#releases` channel when its release workflow publishes. Likely an org reusable workflow in `tkforgeworks/.github` that any repo's release can call. | Webhook | [TKFW-101](https://tkforgeworks.atlassian.net/browse/TKFW-101) |
+| Jira bridge | `/ticket TKFW-95` shows a status card. A right-click "Create TKFW ticket" on a message files it with the `discord` label. Optional feed of status changes. | Slash-command bot | [TKFW-102](https://tkforgeworks.atlassian.net/browse/TKFW-102) |
+| Digest poster | Posts the weekly and midweek forge-digest summaries to a channel as well as email. | Webhook | [TKFW-105](https://tkforgeworks.atlassian.net/browse/TKFW-105) |
 
 ### For users of TK ForgeWorks apps
 
-| Tool | What it does | Type |
-|---|---|---|
-| Bug and feedback intake | A `/bug` form, or a forum channel, that files a Jira bug with the app's label and replies with the ticket key. | Slash-command bot |
-| Beta tester hub | A tester role people opt into, and an announcement when a release candidate reaches the Play internal track. | Slash-command bot + webhook |
-| Docs and FAQ lookup | `/docs <query>` searches the product READMEs and docs. Could later answer questions with Claude. | Slash-command bot |
+| Tool | What it does | Type | Ticket |
+|---|---|---|---|
+| Bug and feedback intake | A `/bug` form, or a forum channel, that files a Jira bug with the app's label and replies with the ticket key. | Slash-command bot | [TKFW-103](https://tkforgeworks.atlassian.net/browse/TKFW-103) |
+| Beta tester hub | A tester role people opt into, and an announcement when a release candidate reaches the Play internal track. | Slash-command bot + webhook | [TKFW-104](https://tkforgeworks.atlassian.net/browse/TKFW-104) |
+| Docs and FAQ lookup | `/docs <query>` searches the product READMEs and docs. Could later answer questions with Claude. | Slash-command bot | [TKFW-106](https://tkforgeworks.atlassian.net/browse/TKFW-106) |
+
+### Groundwork
+
+Needed before the first code tool ships:
+
+| Work | Ticket |
+|---|---|
+| TypeScript `tools/` workspace, org CI, and the required check on `main` | [TKFW-98](https://tkforgeworks.atlassian.net/browse/TKFW-98) |
+| Dev Discord application, private test server and Cloudflare Workers hosting | [TKFW-99](https://tkforgeworks.atlassian.net/browse/TKFW-99) |
+| Per-tool release workflow and an org branching standard for multi-tool repos | [TKFW-100](https://tkforgeworks.atlassian.net/browse/TKFW-100) |
 
 ### Use Discord's built-in features instead
 
-Don't build these; Discord or the services we already use cover them:
+Don't build these; Discord or the services we already use cover them. The
+ones that need setting up have a configuration ticket:
 
 - **GitHub CI and PR feed:** add `/github` to the end of a Discord webhook URL
   and add it as a GitHub repo or org webhook. Build a bot only if it needs
   filtering.
-- **Homelab and Grafana alerts:** Grafana has a Discord contact point.
+  ([TKFW-107](https://tkforgeworks.atlassian.net/browse/TKFW-107))
 - **Member onboarding and role picking:** Server Settings → Onboarding.
+  ([TKFW-108](https://tkforgeworks.atlassian.net/browse/TKFW-108))
 - **Moderation:** AutoMod.
-- **Polls and event scheduling:** built-in polls and scheduled events.
+  ([TKFW-109](https://tkforgeworks.atlassian.net/browse/TKFW-109))
+- **Homelab and Grafana alerts:** Grafana has a Discord contact point. Not
+  planned yet.
+- **Polls and event scheduling:** built-in polls and scheduled events. Nothing
+  to set up.
 
 ## Proposed stack
 
