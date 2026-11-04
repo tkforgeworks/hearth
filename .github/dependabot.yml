@@ -1,0 +1,11 @@
+# From tkforgeworks/.github templates/dependabot.yml. Only GitHub Actions for
+# now; add the npm / uv / pub entry when the first tool picks a toolchain.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
